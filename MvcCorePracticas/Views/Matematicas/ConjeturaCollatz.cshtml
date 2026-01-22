@@ -1,0 +1,16 @@
+﻿<h1>Conjetura collatz</h1>
+<form method="post">
+    <label>Numero</label><br />
+    <input type="text" name="numero" value="" /><br />
+    <button>Ejecutar</button>
+</form>
+
+@if(@ViewData["Conjetura"] != null){
+    <ul>
+        @foreach(int num in (List<int>)@ViewData["Conjetura"])
+        {
+        <li>@num</li>
+        }
+    </ul>
+}
+
