@@ -1,10 +1,11 @@
-﻿<h1>Conjetura collatz</h1>
+﻿@model List<int>
+<h1>Conjetura collatz</h1>
 <form method="post">
     <label>Numero</label><br />
     <input type="text" name="numero" value="" /><br />
     <button>Ejecutar</button>
 </form>
-
+<h1>Conjetura collatz con casting</h1>
 @if(@ViewData["Conjetura"] != null){
     <ul>
         @foreach(int num in (List<int>)@ViewData["Conjetura"])
@@ -13,4 +14,13 @@
         }
     </ul>
 }
-
+<h1>Conjetura collatz con model</h1>
+@if (Model!= null)
+{
+  <ul>
+    @foreach (int num in Model)
+    {
+        <li>@num</li>
+    }
+  </ul>
+}

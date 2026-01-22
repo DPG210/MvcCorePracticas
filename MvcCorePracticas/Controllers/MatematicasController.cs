@@ -48,7 +48,7 @@ namespace MvcCorePracticas.Controllers
                 resultado.Add(num);
             }
             ViewData["conjetura"] = resultado;
-            return View();
+            return View(resultado);
         }
     }
 }
