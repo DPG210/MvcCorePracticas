@@ -1,0 +1,80 @@
+﻿@model TablaMultiplicar
+<h1>Tabla Multiplicar</h1>
+<form method="post">
+    <label>Introduzca numero</label>
+    <input type="text" name="numero" value="" />
+    <button>Multiplicar</button>
+</form>
+
+<h2>Tabla de multiplicar</h2>
+<table>
+    <thead>
+        <th>Operacion</th>
+        <th>Resultado</th>
+    </thead>
+    <tbody>
+        
+        @if (ViewData["operacion"] != null && ViewData["resultado"] != null)
+                {
+                    
+               
+                @for (int i = 0; i < ViewBag.operacion.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @ViewBag.operacion[i]
+                        </td>
+                    <td>
+                        @ViewBag.resultado[i]
+                    </td>
+                    </tr>
+                }
+           
+                }
+            
+    </tbody>
+</table>
+<h2>Tabla de multiplicar Model</h2>
+<table>
+    <thead>
+    <th>Operacion</th>
+    <th>Resultado</th>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @for(int i =0; i< Model.Resultado.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Operacion[i]</td>
+                    <td>@Model.Resultado[i]</td>
+                </tr>
+            }
+
+        }
+
+    </tbody>
+</table>
+<h2>Tabla de multiplicar Model2</h2>
+<table>
+    <thead>
+    <th>Operacion</th>
+    <th>Resultado</th>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @for (int i = 0; i < Model.Resultado.Count; i++)
+            {
+                <tr>
+                    <td>@Model.Operacion[i]</td>
+                    <td>@Model.Resultado[i]</td>
+                </tr>
+            }
+
+        }
+
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿@model List<TabMult>
+<h1>Tabla Multiplicar</h1>
+<form method="post">
+    <label>Introduzca numero</label>
+    <input type="text" name="numero" value="" />
+    <button>Multiplicar</button>
+</form>
+
+<h2>Tabla de multiplicar Model</h2>
+<table>
+    <thead>
+    <th>Operacion</th>
+    <th>Resultado</th>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            @foreach (TabMult tab in Model)
+            {
+                <tr>
+                    <td>@tab.Operacion</td>
+                    <td>@tab.Resultado</td>
+                </tr>
+            }
+
+
+        }
+
+    </tbody>
+</table>

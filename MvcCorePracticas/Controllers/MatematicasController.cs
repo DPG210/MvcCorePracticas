@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcCorePracticas.Models;
 
 namespace MvcCorePracticas.Controllers
 {
@@ -49,6 +50,59 @@ namespace MvcCorePracticas.Controllers
             }
             ViewData["conjetura"] = resultado;
             return View(resultado);
+        }
+
+        public IActionResult TablaMultiplicar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult TablaMultiplicar(int numero)
+        {
+            TablaMultiplicar tabla = new TablaMultiplicar();
+            tabla.Operacion = new List<string>();
+            tabla.Resultado = new List<int>();
+            List<string> operacion = new List<string>();
+            List<int> resultado = new List<int>();
+            
+            for(int i = 1; i<=10; i++)
+            {
+               int res = i * numero;
+                string ope = numero + "*" + i ;
+                operacion.Add(ope);
+                resultado.Add(res);
+                tabla.Operacion.Add(ope);
+                tabla.Resultado.Add(res);
+            }
+            ViewBag.resultado = resultado;
+            ViewBag.operacion = operacion;
+            return View(tabla);
+        }
+
+        public IActionResult TablaMultiplicar2()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult TablaMultiplicar2(int numero)
+        {
+            List<TabMult> table = new List<TabMult>();
+            //table.Operacion = new List<string>();
+            //table.Resultado = new List<int>();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                TabMult tab = new TabMult();
+                int res = i * numero;
+                string ope = numero + "*" + i;
+                tab.Operacion = ope;
+                tab.Resultado = res;
+                table.Add(tab);
+            }
+            
+            return View(table);
         }
     }
 }
